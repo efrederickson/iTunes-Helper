@@ -229,6 +229,7 @@ namespace iTunesHelper.Forms
                     this.SetProgressBars();
                     zip1.CompressionLevel = CompressionLevel.BestCompression;
                     zip1.SaveProgress += new EventHandler<SaveProgressEventArgs>(this.zip1_SaveProgress);
+                    zip1.UseZip64WhenSaving = Zip64Option.Always;
                     zip1.Save(options.ZipName);
                 }
             }
