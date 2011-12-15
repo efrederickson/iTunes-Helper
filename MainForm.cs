@@ -403,7 +403,7 @@ namespace iTunesHelper
         
         void ExitITunesHelperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Environment.Exit(0);
         }
         
         void Button9_Click(object sender, EventArgs e)

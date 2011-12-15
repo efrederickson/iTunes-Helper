@@ -164,7 +164,7 @@ namespace iTunesHelper.Forms
                                                                          lblStatus.Text = "Processing files... " + track.Location;
                                                                      }), new object[] {null, EventArgs.Empty});
                                 try {
-                                    zip1.AddFile(track.Location, (string.IsNullOrEmpty(track.Artist) ? "Unknown Artist" : Clean(track.Artist) )+ " - " + (string.IsNullOrEmpty(track.Album) ? "Unknown Album" : Clean(track.Album)) + "\\");
+                                    zip1.AddFile(track.Location, (string.IsNullOrEmpty(track.Artist) ? "Unknown Artist" : Clean(track.Artist) )+ "\\" + (string.IsNullOrEmpty(track.Album) ? "Unknown Album" : Clean(track.Album)) + "\\");
                                 } catch (Exception ex) {
                                     this.btnZipUp.Invoke(new ButtonClick(delegate (object sender2, EventArgs e2) {
                                                                              errorListBox.Items.Add("Error adding a file: " + track.Location + " " +  ex.Message);
@@ -201,7 +201,7 @@ namespace iTunesHelper.Forms
                                         this.btnZipUp.Invoke(new ButtonClick(delegate (object sender2, EventArgs e2) {
                                                                          lblStatus.Text = "Processing files... " + track.Location;
                                                                      }), new object[] {null, EventArgs.Empty});
-                                        zip1.AddFile(track.Location, (string.IsNullOrEmpty(track.Artist) ? "Unknown Artist" : Clean(track.Artist) )+ " - " + (string.IsNullOrEmpty(track.Album) ? "Unknown Album" : Clean(track.Album)) + "\\");
+                                        zip1.AddFile(track.Location, (string.IsNullOrEmpty(track.Artist) ? "Unknown Artist" : Clean(track.Artist) )+ "\\" + (string.IsNullOrEmpty(track.Album) ? "Unknown Album" : Clean(track.Album)) + "\\");
                                     }
                                     else
                                     {
