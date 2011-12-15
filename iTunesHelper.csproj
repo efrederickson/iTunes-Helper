@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{9A2EE03E-41EF-4907-A366-0FA9A7335DCA}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>iTunesHelper</RootNamespace>
+    <AssemblyName>iTunesHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iTunes Helper.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>libs\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>libs\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>libs\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\JavaScriptClasses.cs" />
+    <Compile Include="Classes\ScheduledSync.cs" />
+    <Compile Include="Classes\WorkerOptions.cs" />
+    <Compile Include="Forms\CheckingFilesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CheckingFilesForm.Designer.cs">
+      <DependentUpon>CheckingFilesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Device.cs" />
+    <Compile Include="Forms\ConvertItemForm.cs" />
+    <Compile Include="Forms\ConvertItemForm.Designer.cs">
+      <DependentUpon>ConvertItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GetEncryptionCodeForm.cs" />
+    <Compile Include="Forms\GetEncryptionCodeForm.Designer.cs">
+      <DependentUpon>GetEncryptionCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GetPlaylistNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GetPlaylistNameForm.Designer.cs">
+      <DependentUpon>GetPlaylistNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LibraryBackupForm.cs" />
+    <Compile Include="Forms\LibraryBackupForm.Designer.cs">
+      <DependentUpon>LibraryBackupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OnTopMusicControllerForm.cs" />
+    <Compile Include="Forms\OnTopMusicControllerForm.Designer.cs">
+      <DependentUpon>OnTopMusicControllerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SetupScheduledSyncForm.cs" />
+    <Compile Include="Forms\SetupScheduledSyncForm.Designer.cs">
+      <DependentUpon>SetupScheduledSyncForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MovingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MovingForm.Designer.cs">
+      <DependentUpon>MovingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\SelectDriveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectDriveForm.Designer.cs">
+      <DependentUpon>SelectDriveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SyncingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SyncingForm.Designer.cs">
+      <DependentUpon>SyncingForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="JavaScript\SendAudioTracksToDevice.bat" />
+    <None Include="libs\Ionic.Zip.dll" />
+    <None Include="libs\Microsoft.WindowsAPICodePack.dll" />
+    <None Include="libs\Microsoft.WindowsAPICodePack.Shell.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\CheckingFilesForm.resx">
+      <DependentUpon>CheckingFilesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConvertItemForm.resx">
+      <DependentUpon>ConvertItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GetEncryptionCodeForm.resx">
+      <DependentUpon>GetEncryptionCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GetPlaylistNameForm.resx">
+      <DependentUpon>GetPlaylistNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LibraryBackupForm.resx">
+      <DependentUpon>LibraryBackupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OnTopMusicControllerForm.resx">
+      <DependentUpon>OnTopMusicControllerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetupScheduledSyncForm.resx">
+      <DependentUpon>SetupScheduledSyncForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MovingForm.resx">
+      <DependentUpon>MovingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectDriveForm.resx">
+      <DependentUpon>SelectDriveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SyncingForm.resx">
+      <DependentUpon>SyncingForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iTunes Helper.ico" />
+    <Content Include="JavaScript\In C#\adjustvolume.js" />
+    <Content Include="JavaScript\In C#\ClearLyrics.js" />
+    <Content Include="JavaScript\In C#\CreateAlbumPlaylists.js" />
+    <Content Include="JavaScript\Not Putting In C#\EvilLyricsImport.js" />
+    <Content Include="JavaScript\Not Putting In C#\FindDeadTracks.js" />
+    <Content Include="JavaScript\Not Putting In C#\itunes_insert_artwork.vbs" />
+    <Content Include="JavaScript\In C#\NoArtPlaylist.js" />
+    <Content Include="JavaScript\NoLyricsPlaylist.js" />
+    <Content Include="JavaScript\OneHitWonders.js" />
+    <Content Include="JavaScript\In C#\RemoveDeadTracks.js" />
+    <Content Include="JavaScript\RemoveUserPlaylists.js" />
+    <Content Include="JavaScript\SendAudioTracksToDeviceScript.js" />
+    <Content Include="JavaScript\In C#\updateinfofromtrackfile.js" />
+    <Content Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="libs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="iTunesLib">
+      <Guid>{9E93C96F-CF0D-43F6-8BA8-B807A3370712}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>13</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>
