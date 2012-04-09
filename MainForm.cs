@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using iTunesLib;
@@ -312,9 +313,11 @@ namespace iTunesHelper
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            notifyIcon1.ShowBalloonTip(1, "iTunes Helper", "Started!", ToolTipIcon.Info);
+            notifyIcon1.ShowBalloonTip(10, "iTunes Helper", "Started!", ToolTipIcon.Info);
+            
+            LibraryLyricScanner.Start();
         }
-
+        
         #region OVERRIDE WndProc
         public const int WM_SYSCOMMAND = 0x112;
         public const int SC_MINIMIZE = 0xF020;
@@ -410,6 +413,24 @@ namespace iTunesHelper
         {
             new Forms.OnTopMusicControllerForm().Show();
             button9.Enabled = false;
+        }
+        
+        public void ShowBalloonTip(string msg, string title)
+        {
+            notifyIcon1.ShowBalloonTip(1000, title, msg, ToolTipIcon.None);
+        }
+        
+        public bool GetLyrics
+        {
+            get
+            {
+                return checkBox1.Checked;
+            }
+        }
+        
+        public void SetMessage(string texT)
+        {
+            statusLabel.Text = texT;
         }
     }
 }

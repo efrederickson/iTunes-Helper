@@ -87,6 +87,15 @@
     <Compile Include="Forms\SetupScheduledSyncForm.Designer.cs">
       <DependentUpon>SetupScheduledSyncForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lyrics\LyricsFetcher.cs" />
+    <Compile Include="Lyrics\LyricsFetchManager.cs" />
+    <Compile Include="Lyrics\LyricsSourceAbsoluteLyrics.cs" />
+    <Compile Include="Lyrics\LyricsSourceAZLyrics.cs" />
+    <Compile Include="Lyrics\LyricsSourceLyrdb.cs" />
+    <Compile Include="Lyrics\LyricsSourceLyrics007.cs" />
+    <Compile Include="Lyrics\LyricsSourceLyricsFly.cs" />
+    <Compile Include="Lyrics\LyricsSourceLyricsPlugin_BROKEN.cs" />
+    <Compile Include="Lyrics\LyricsSourceMP3Lyrics.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +129,7 @@
     <None Include="libs\Ionic.Zip.dll" />
     <None Include="libs\Microsoft.WindowsAPICodePack.dll" />
     <None Include="libs\Microsoft.WindowsAPICodePack.Shell.dll" />
+    <None Include="Lyrics\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\CheckingFilesForm.resx">
@@ -175,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="libs" />
+    <Folder Include="Lyrics" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="iTunesLib">

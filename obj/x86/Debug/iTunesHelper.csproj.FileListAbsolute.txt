@@ -23,3 +23,28 @@ C:\Users\elijah.FFHS2\Documents\SharpDevelop Projects\iTunesHelper\bin\Debug\Mic
 C:\Users\elijah.FFHS2\Documents\SharpDevelop Projects\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\elijah.FFHS2\Documents\SharpDevelop Projects\iTunesHelper\bin\Debug\Interop.iTunesLib.dll
 C:\Users\elijah.FFHS2\Documents\SharpDevelop Projects\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.OnTopMusicControllerForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\Interop.iTunesLib.dll
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.csproj.ResolveComReference.cache
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.CheckingFilesForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.ConvertItemForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.GetEncryptionCodeForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.GetPlaylistNameForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.LibraryBackupForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.OnTopMusicControllerForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.SetupScheduledSyncForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.MainForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.MovingForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.SelectDriveForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.SyncingForm.resources
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.exe
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.pdb
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\iTunesHelper.exe.config
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\iTunesHelper.exe
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\iTunesHelper.pdb
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\Ionic.Zip.dll
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Elijah - Libraries\iTunesHelper\bin\Debug\Interop.iTunesLib.dll
