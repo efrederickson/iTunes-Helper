@@ -48,3 +48,33 @@ C:\Elijah - Libraries\iTunesHelper\bin\Debug\Ionic.Zip.dll
 C:\Elijah - Libraries\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Elijah - Libraries\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Elijah - Libraries\iTunesHelper\bin\Debug\Interop.iTunesLib.dll
+C:\Elijah - Libraries\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.GetLyricsForm.resources
+W:\Code\iTunesHelper\bin\Debug\iTunesHelper.exe.config
+W:\Code\iTunesHelper\bin\Debug\iTunesHelper.exe
+W:\Code\iTunesHelper\bin\Debug\iTunesHelper.pdb
+W:\Code\iTunesHelper\bin\Debug\Ionic.Zip.dll
+W:\Code\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.dll
+W:\Code\iTunesHelper\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+W:\Code\iTunesHelper\bin\Debug\policy.2.0.taglib-sharp.dll
+W:\Code\iTunesHelper\bin\Debug\taglib-sharp.dll
+W:\Code\iTunesHelper\bin\Debug\policy.2.0.taglib-sharp.config
+W:\Code\iTunesHelper\bin\Debug\Interop.iTunesLib.dll
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.csprojResolveAssemblyReference.cache
+W:\Code\iTunesHelper\obj\x86\Debug\Interop.iTunesLib.dll
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.csproj.ResolveComReference.cache
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.ApplyLibraryToFiles.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.CheckingFilesForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.ConvertItemForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.GetEncryptionCodeForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.GetLyricsForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.GetPlaylistNameForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.LibraryBackupForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.OnTopMusicControllerForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.Forms.SetupScheduledSyncForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.MainForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.MovingForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.SelectDriveForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.SyncingForm.resources
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.csproj.GenerateResource.Cache
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.exe
+W:\Code\iTunesHelper\obj\x86\Debug\iTunesHelper.pdb

@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Text.RegularExpressions;
 
-namespace iTunesHelper
+namespace MediaPlayer.Lyrics
 {
     /// <summary>
     /// This source tries to fetch song lyrics from the Lyrdb site (www.lyrdb.com)
@@ -35,6 +35,8 @@ namespace iTunesHelper
         /// <returns>The lyrics or an empty string if the lyrics could not be found</returns>
         public string GetLyrics(iTunesLib.IITFileOrCDTrack s)
         {
+            if (string.IsNullOrEmpty(s.Artist) || string.IsNullOrEmpty(s.Name))
+                return "";
             // Lyrdb can't handle single or double quotes in the title (as of 12/1/2008)
             // So we just remove them
             string title = s.Name.Replace("'", "");
@@ -55,12 +57,12 @@ namespace iTunesHelper
 
                 // If we only have the title or the perfect match failed, do a full text search using 
                 // whatever information we have
-                if (result == String.Empty)
-                {
-                    string queryUrl = String.Format("http://webservices.lyrdb.com/lookup.php?q={0}&for=trackname&agent={2}/{3}",
-                        title, s.Artist, PROGRAM_NAME, PROGRAM_VERSION);
-                    result = client.DownloadString(queryUrl);
-                }
+                //if (result == String.Empty)
+                //{
+                //    string queryUrl = String.Format("http://webservices.lyrdb.com/lookup.php?q={0}&for=trackname&agent={2}/{3}",
+                //        title, s.Artist, PROGRAM_NAME, PROGRAM_VERSION);
+                //    result = client.DownloadString(queryUrl);
+                //}
             }
             catch (Exception ex)
             {

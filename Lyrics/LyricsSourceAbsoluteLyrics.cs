@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Text.RegularExpressions;
 
-namespace iTunesHelper
+namespace MediaPlayer.Lyrics
 {
     /// <summary>
     /// Search AbsoluteLyrics.com for lyrics
@@ -25,31 +25,33 @@ namespace iTunesHelper
         private const string pattern = "(?<=<p id=\"view_lyrics\">)((.|\n)*)(?=</p>)";
 
         public string GetLyrics(iTunesLib.IITFileOrCDTrack s)
+        {
+            if (string.IsNullOrEmpty(s.Artist) || string.IsNullOrEmpty(s.Name))
+                return "";
+            string ret = String.Empty;
+            string url = string.Format("http://www.absolutelyrics.com/lyrics/view/{0}/{1}",
+                                       s.Artist.Replace(" ", "_"), s.Name.Replace(" ", "_"));
+            try
             {
-                string ret = String.Empty;
-                string url = string.Format("http://www.absolutelyrics.com/lyrics/view/{0}/{1}",
-                    s.Artist.Replace(" ", "_"), s.Name.Replace(" ", "_"));
-                try
+                WebClient wc = new WebClient();
+                string html = wc.DownloadString(url);
+                Match match = Regex.Match(html, pattern);
+                if (match.Success)
                 {
-                    WebClient wc = new WebClient();
-                    string html = wc.DownloadString(url);
-                     Match match = Regex.Match(html, pattern);
-                    if (match.Success)
-                    {
-                        ret = Flatten(match.Value);
+                    ret = Flatten(match.Value);
 
-                        ret = Unbreak(ret)
-                            .Replace("<i>", "")
-                            .Replace("</i>", "");
+                    ret = Unbreak(ret)
+                        .Replace("<i>", "")
+                        .Replace("</i>", "");
 
-                    }
                 }
-                catch (Exception)
-                {
-                    ret = "";
-                }
-                return ret;
             }
+            catch (Exception ex)
+            {
+                ret = "";
+            }
+            return ret;
+        }
 
         string Unbreak(string text)
         {

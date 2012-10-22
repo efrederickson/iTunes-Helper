@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Text.RegularExpressions;
 
-namespace iTunesHelper
+namespace MediaPlayer.Lyrics
 {
     /// <summary>
     /// This lyrics provider queries the AzLyrics service for lyrics of a specified song.
@@ -26,6 +26,8 @@ namespace iTunesHelper
         /// <returns>The lyrics or an empty string if the lyrics could not be found</returns>
         public string GetLyrics(iTunesLib.IITFileOrCDTrack song)
         {
+            if (string.IsNullOrEmpty(song.Artist) || string.IsNullOrEmpty(song.Name))
+                return "";
             // clean the title; we don't need quotes
             string title = Regex.Replace(song.Name, "['\"]", "");
 
@@ -57,7 +59,7 @@ namespace iTunesHelper
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     lyrics = String.Empty;
                 }

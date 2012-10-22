@@ -60,6 +60,7 @@ namespace iTunesHelper
             this.button12 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -68,6 +69,7 @@ namespace iTunesHelper
             this.button9 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.button16 = new System.Windows.Forms.Button();
             this.notifyIconContextMenuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -172,7 +174,7 @@ namespace iTunesHelper
                                     this.exitoniTunesCloseToolStripMenuItem,
                                     this.exitITunesHelperToolStripMenuItem});
             this.notifyIconContextMenuStrip.Name = "notifyIconContextMenuStrip";
-            this.notifyIconContextMenuStrip.Size = new System.Drawing.Size(178, 114);
+            this.notifyIconContextMenuStrip.Size = new System.Drawing.Size(178, 92);
             // 
             // showToolStripMenuItem
             // 
@@ -212,9 +214,9 @@ namespace iTunesHelper
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Location = new System.Drawing.Point(215, 12);
+            this.groupBox1.Location = new System.Drawing.Point(216, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(229, 327);
+            this.groupBox1.Size = new System.Drawing.Size(229, 400);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Devices";
@@ -283,18 +285,30 @@ namespace iTunesHelper
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.button16);
+            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.button15);
             this.groupBox2.Controls.Add(this.button11);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(9, 12);
+            this.groupBox2.Location = new System.Drawing.Point(10, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 207);
+            this.groupBox2.Size = new System.Drawing.Size(200, 294);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Commands";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(19, 203);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(147, 23);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Get Lyrics for all songs";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // button15
             // 
@@ -321,7 +335,7 @@ namespace iTunesHelper
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Controls.Add(this.MWCCheckBox);
             this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Location = new System.Drawing.Point(9, 239);
+            this.groupBox3.Location = new System.Drawing.Point(10, 312);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 100);
             this.groupBox3.TabIndex = 11;
@@ -366,9 +380,9 @@ namespace iTunesHelper
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
                                     this.statusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 362);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 415);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(470, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(471, 22);
             this.statusStrip1.TabIndex = 13;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -377,15 +391,25 @@ namespace iTunesHelper
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(0, 17);
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(19, 233);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(147, 23);
+            this.button16.TabIndex = 8;
+            this.button16.Text = "Apply iTunes Data to files";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.Button16_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 384);
+            this.ClientSize = new System.Drawing.Size(471, 437);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "iTunes Helper";
@@ -402,6 +426,8 @@ namespace iTunesHelper
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.CheckBox checkBox1;

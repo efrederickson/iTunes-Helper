@@ -314,8 +314,6 @@ namespace iTunesHelper
         private void MainForm_Load(object sender, EventArgs e)
         {
             notifyIcon1.ShowBalloonTip(10, "iTunes Helper", "Started!", ToolTipIcon.Info);
-            
-            LibraryLyricScanner.Start();
         }
         
         #region OVERRIDE WndProc
@@ -431,6 +429,16 @@ namespace iTunesHelper
         public void SetMessage(string texT)
         {
             statusLabel.Text = texT;
+        }
+        
+        void Button5_Click(object sender, EventArgs e)
+        {
+            new Forms.GetLyricsForm().ShowDialog();
+        }
+        
+        void Button16_Click(object sender, EventArgs e)
+        {
+            new Forms.ApplyLibraryToFiles().ShowDialog();
         }
     }
 }

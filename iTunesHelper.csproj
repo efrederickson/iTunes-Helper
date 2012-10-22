@@ -42,6 +42,9 @@
     <Reference Include="Microsoft.WindowsAPICodePack.Shell">
       <HintPath>libs\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="policy.2.0.taglib-sharp">
+      <HintPath>packages\taglib.2.1.0.0\lib\policy.2.0.taglib-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -49,11 +52,18 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp">
+      <HintPath>packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\JavaScriptClasses.cs" />
     <Compile Include="Classes\ScheduledSync.cs" />
     <Compile Include="Classes\WorkerOptions.cs" />
+    <Compile Include="Forms\ApplyLibraryToFiles.cs" />
+    <Compile Include="Forms\ApplyLibraryToFiles.Designer.cs">
+      <DependentUpon>ApplyLibraryToFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CheckingFilesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +78,10 @@
     <Compile Include="Forms\GetEncryptionCodeForm.cs" />
     <Compile Include="Forms\GetEncryptionCodeForm.Designer.cs">
       <DependentUpon>GetEncryptionCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GetLyricsForm.cs" />
+    <Compile Include="Forms\GetLyricsForm.Designer.cs">
+      <DependentUpon>GetLyricsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\GetPlaylistNameForm.cs">
       <SubType>Form</SubType>
@@ -87,14 +101,13 @@
     <Compile Include="Forms\SetupScheduledSyncForm.Designer.cs">
       <DependentUpon>SetupScheduledSyncForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lyrics\LyricsFetcher.cs" />
+    <Compile Include="Lyrics\ILyricsSource.cs" />
+    <Compile Include="Lyrics\LyricsFetchingTask.cs" />
     <Compile Include="Lyrics\LyricsFetchManager.cs" />
     <Compile Include="Lyrics\LyricsSourceAbsoluteLyrics.cs" />
     <Compile Include="Lyrics\LyricsSourceAZLyrics.cs" />
     <Compile Include="Lyrics\LyricsSourceLyrdb.cs" />
     <Compile Include="Lyrics\LyricsSourceLyrics007.cs" />
-    <Compile Include="Lyrics\LyricsSourceLyricsFly.cs" />
-    <Compile Include="Lyrics\LyricsSourceLyricsPlugin_BROKEN.cs" />
     <Compile Include="Lyrics\LyricsSourceMP3Lyrics.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -130,8 +143,12 @@
     <None Include="libs\Microsoft.WindowsAPICodePack.dll" />
     <None Include="libs\Microsoft.WindowsAPICodePack.Shell.dll" />
     <None Include="Lyrics\Readme.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\ApplyLibraryToFiles.resx">
+      <DependentUpon>ApplyLibraryToFiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CheckingFilesForm.resx">
       <DependentUpon>CheckingFilesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GetEncryptionCodeForm.resx">
       <DependentUpon>GetEncryptionCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GetLyricsForm.resx">
+      <DependentUpon>GetLyricsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GetPlaylistNameForm.resx">
       <DependentUpon>GetPlaylistNameForm.cs</DependentUpon>
