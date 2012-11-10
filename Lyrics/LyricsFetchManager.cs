@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Collections;
@@ -11,58 +12,104 @@ namespace MediaPlayer.Lyrics
     /// </summary>
     public class LyricsFetchManager
     {
+        int threads = 0;
+        
         public void Start()
         {
             foreach (iTunesLib.IITFileOrCDTrack t2 in this.t.Tracks)
             {
                 iTunesLib.IITFileOrCDTrack t = t2;
                 if (t == null)
+                {
+                    onSkip();
                     continue;
-                if (t.Location == "")
+                }
+                if (t.Location == null)
+                {
+                    onSkip();
                     continue;
+                }
                 
                 if (t.Podcast)
+                {
+                    onSkip();
                     continue;
+                }
+                
+                if (t.Location == "")
+                {
+                    onSkip();
+                    continue;
+                }
                 if (t.Location.ToLower().EndsWith(".m4") ||
                     t.Location.ToLower().EndsWith(".m4v"))
+                {
+                    onSkip();
                     continue;
-                    
+                }
+                
                 
                 // skip ones that already have lyrics
                 if (!string.IsNullOrEmpty(t.Lyrics))
+                {
+                    onSkip();
                     continue;
+                }
 
                 string result = string.Empty;
                 ILyricsSource rSource = null;
-                foreach (ILyricsSource source in this.Sources)
-                {
-                    if (source == null)
-                        continue;
-                    string s = source.GetLyrics(t);
-                    //System.Windows.Forms.MessageBox.Show(source.Name + " :: " + s);
-                    if (OnStatusChanged != null)
-                        OnStatusChanged(null, new LyricEventArgs(source, s, !string.IsNullOrEmpty(s), t));
-                    if (string.IsNullOrEmpty(s) == false)
+                Thread thrd = new Thread(new ThreadStart(delegate {
+                    threads++;
+                    onNewThread();
+                    foreach (ILyricsSource source in this.Sources)
                     {
-                        result = s;
-                        rSource = source;
-                        break;
+                        if (source == null)
+                            continue;
+                        string s = source.GetLyrics(t);
+                        //System.Windows.Forms.MessageBox.Show(source.Name + " :: " + s);
+                        if (OnStatusChanged != null)
+                            OnStatusChanged(null, new LyricEventArgs(source, s, !string.IsNullOrEmpty(s), t));
+                        if (string.IsNullOrEmpty(s) == false)
+                        {
+                            result = s;
+                            rSource = source;
+                            break;
+                        }
                     }
-                }
-                if (string.IsNullOrEmpty(result) == false)
-                {
-                    t.Lyrics = result;
-                    try
+                    if (string.IsNullOrEmpty(result) == false)
                     {
-                        //t.Info.Save();
-                        //MainWindow.Instance.StatusMessage = String.Format("Saved lyrics from {0}!", rSource.Name);
+                        t.Lyrics = result;
+                        try
+                        {
+                            //t.Info.Save();
+                            //MainWindow.Instance.StatusMessage = String.Format("Saved lyrics from {0}!", rSource.Name);
+                        }
+                        catch (Exception ex)
+                        {
+                            //MainWindow.Instance.StatusMessage = String.Format("Error saving lyrics: {0}", ex.Message);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        //MainWindow.Instance.StatusMessage = String.Format("Error saving lyrics: {0}", ex.Message);
-                    }
-                }
+                    if (OnTrackFinished != null)
+                        OnTrackFinished(null, null);
+                    threads--;
+                    onRemoveThread();
+                }));
+                while (threads >= 500)
+                    ;
+                thrd.Start();
             }
+        }
+        
+        void onNewThread()
+        {
+            if (OnNewThread != null)
+                OnNewThread(null, null);
+        }
+        
+        void onRemoveThread()
+        {
+            if (OnRemoveThread != null)
+                OnRemoveThread(null, null);
         }
 
         public iTunesLib.IITPlaylist t;
@@ -76,7 +123,20 @@ namespace MediaPlayer.Lyrics
         {
             Sources.Add(s);
         }
-
+        
+        void onSkip()
+        {
+            if (OnTrackSkipped != null)
+                OnTrackSkipped(null, null);
+        }
+        
+        public event EventHandler OnNewThread;
+        public event EventHandler OnRemoveThread;
+        
+        public event EventHandler OnTrackFinished;
+        
+        public event EventHandler OnTrackSkipped;
+        
         public event EventHandler<LyricEventArgs> OnStatusChanged;
 
         public class LyricEventArgs : EventArgs

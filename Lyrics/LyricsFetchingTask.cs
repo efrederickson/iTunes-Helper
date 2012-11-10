@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace MediaPlayer.Tasks
 {
@@ -27,6 +29,9 @@ namespace MediaPlayer.Tasks
         bool finished;
         bool cancel = false;
         BackgroundWorker bg = new BackgroundWorker();
+        TaskbarManager tm = TaskbarManager.Instance;
+        int currentTrack = 0;
+        int threads = 0;
 
         public LyricsFetchingTask(iTunesLib.IITPlaylist t)
         {
@@ -44,8 +49,13 @@ namespace MediaPlayer.Tasks
             try
             {
                 man.t = t;
+                man.OnTrackSkipped += onSkipTrack;
+                man.OnNewThread += delegate { threads++; };
+                man.OnRemoveThread += delegate { threads--; };
+                man.OnTrackFinished += delegate { currentTrack++; };
                 man.OnStatusChanged += new EventHandler<Lyrics.LyricsFetchManager.LyricEventArgs>(man_OnStatusChanged);
                 total = t.Tracks.Count * man.Sources.Count;
+                tm.SetProgressValue(0, total);
                 man.Start();
             }
             catch (Exception ex)
@@ -56,6 +66,7 @@ namespace MediaPlayer.Tasks
 
         void man_OnStatusChanged(object sender, Lyrics.LyricsFetchManager.LyricEventArgs e)
         {
+            tm.SetProgressValue(current, total);
             if (e.LyricsFound)
             {
                 subText = String.Format("Lyrics for '{1}' found on source '{0}'!", e.Source.Name, e.Track.Name);
@@ -65,10 +76,17 @@ namespace MediaPlayer.Tasks
             {
                 subText = String.Format("Lyrics for '{1}' not found on source '{0}'.", e.Source.Name, e.Track.Name);
             }
-            text = string.Format("Getting lyrics for {0} songs, {1} total lyrics found", t.Tracks.Count - foundLyrics, foundLyrics);
+            text = string.Format("Getting lyrics for {0} songs, {1} total lyrics found, {2} tracks scanned, {3} running threads", t.Tracks.Count/* - foundLyrics*/, foundLyrics, currentTrack, threads);
             if (OnStatusChanged != null)
                 OnStatusChanged(null, null);
             current++;
+        }
+        
+        void onSkipTrack(object sender, EventArgs e)
+        {
+            current += man.Sources.Count;
+            //Debug.WriteLine("+1 track finished!");
+            currentTrack++;
         }
         
         public event EventHandler OnStatusChanged;
